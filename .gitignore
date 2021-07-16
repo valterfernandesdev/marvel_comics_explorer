@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore simplecov html report
+coverage
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
@@ -34,3 +37,7 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# Ignore vscode files
+.vscode
+.settings.json
