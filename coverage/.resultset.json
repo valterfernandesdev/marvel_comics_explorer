@@ -1,0 +1,26 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/home/valtexxxx/marvel_comics_explorer/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/home/valtexxxx/marvel_comics_explorer/app/models/favourit_comic.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/home/valtexxxx/marvel_comics_explorer/app/models/application_record.rb": [
+        1,
+        1,
+        null
+      ],
+      "/home/valtexxxx/marvel_comics_explorer/app/controllers/application_controller.rb": [
+        0,
+        0
+      ]
+    },
+    "timestamp": 1626403665
+  }
+}
