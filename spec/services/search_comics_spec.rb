@@ -25,5 +25,16 @@ RSpec.describe SearchComics do
       it { is_expected.to eq search_response_body["data"]["results"] }
       it { is_expected.to be_kind_of(Array) }
     end
+
+    context "when result is empty" do
+      let(:title) { "spidermen" }
+      let(:search_response_body) do
+        JSON.parse(File.read("spec/fixtures/search_response_without_comics.json"))
+      end
+
+      it { is_expected.to eq search_response_body["data"]["results"] }
+      it { is_expected.to be_kind_of(Array) }
+      it { is_expected.to be_empty }
+    end
   end
 end
