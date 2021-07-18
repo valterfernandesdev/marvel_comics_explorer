@@ -1,3 +1,5 @@
 class HomeController < ApplicationController
-  def index; end
+  def index
+    @comics = SearchComics.call(title: params[:title])
+  end
 end
