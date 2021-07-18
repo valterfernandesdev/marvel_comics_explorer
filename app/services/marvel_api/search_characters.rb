@@ -33,7 +33,7 @@ module MarvelApi
     end
 
     def params
-      { params: payload.merge({ orderBysasd: "name" }).merge(character_hash) }
+      { params: payload.merge({ orderBy: "name" }).merge(character_hash) }
     end
 
     def character_hash
