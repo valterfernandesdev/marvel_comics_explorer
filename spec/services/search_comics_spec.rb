@@ -6,14 +6,18 @@ RSpec.describe SearchComics do
 
     let(:base_url) { "https://gateway.marvel.com/v1/public/comics" }
 
+    shared_examples "return results array" do
+      it { is_expected.to eq search_response_body["data"]["results"] }
+      it { is_expected.to be_kind_of(Array) }
+    end
+
     context "when title is present" do
       let(:title) { "deadpool" }
       let(:search_response_body) do
         JSON.parse(File.read("spec/fixtures/search_response_with_title.json"))
       end
 
-      it { is_expected.to eq search_response_body["data"]["results"] }
-      it { is_expected.to be_kind_of(Array) }
+      include_examples "return results array"
     end
 
     context "when title is blank" do
@@ -22,8 +26,7 @@ RSpec.describe SearchComics do
         JSON.parse(File.read("spec/fixtures/search_response_without_title.json"))
       end
 
-      it { is_expected.to eq search_response_body["data"]["results"] }
-      it { is_expected.to be_kind_of(Array) }
+      include_examples "return results array"
     end
 
     context "when result is empty" do
@@ -32,8 +35,8 @@ RSpec.describe SearchComics do
         JSON.parse(File.read("spec/fixtures/search_response_without_comics.json"))
       end
 
-      it { is_expected.to eq search_response_body["data"]["results"] }
-      it { is_expected.to be_kind_of(Array) }
+      include_examples "return results array"
+
       it { is_expected.to be_empty }
     end
   end
