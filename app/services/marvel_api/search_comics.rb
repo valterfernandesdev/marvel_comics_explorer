@@ -1,9 +1,10 @@
 module MarvelApi
   class SearchComics < Client
-    attr_reader :search_term
+    attr_reader :search_term, :options
 
-    def initialize(search_term:)
+    def initialize(search_term:, options:)
       @search_term = search_term
+      @options = options
 
       super()
     end
@@ -13,7 +14,7 @@ module MarvelApi
 
       response = RestClient.get("https://gateway.marvel.com/v1/public/comics?", params)
 
-      JSON.parse(response.body)["data"]["results"]
+      JSON.parse(response.body)["data"]
     rescue RestClient::Exception
       []
     end
@@ -21,7 +22,7 @@ module MarvelApi
     private
 
     def params
-      { params: payload.merge({ orderBy: "-onsaleDate", formatType: "comic" }).merge(character_hash) }
+      { params: payload.merge({ orderBy: "-onsaleDate" }).merge(character_hash).merge(options_hash) }
     end
 
     def character_hash
@@ -29,6 +30,12 @@ module MarvelApi
       return {} if @character_id_list.blank?
 
       { characters: @character_id_list }
+    end
+
+    def options_hash
+      return {} if @options.blank?
+
+      { offset: options[:offset] }
     end
   end
 end
