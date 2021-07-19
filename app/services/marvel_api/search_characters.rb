@@ -23,7 +23,9 @@ module MarvelApi
 
       ids = ""
 
-      results.each do |result|
+      results.each_with_index do |result, index|
+        break if index == 10
+        
         ids += "#{result['id']}," and next unless result.equal? results.last
 
         ids += result["id"].to_s
