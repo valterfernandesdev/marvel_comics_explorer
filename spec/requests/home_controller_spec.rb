@@ -3,7 +3,7 @@ RSpec.describe HomeController, type: :request do
     subject(:get_index) { get home_index_path, params: { title: title } }
 
     before do
-      allow(SearchComics).to receive(:call).and_return(comics_array)
+      allow(MarvelApi::SearchComics).to receive(:call).and_return(comics_array)
 
       get_index
     end
@@ -16,7 +16,7 @@ RSpec.describe HomeController, type: :request do
     context "when comics are found" do
       let(:title) { "spider-man" }
       let(:comics_array) do
-        JSON.parse(File.read("spec/fixtures/search_response_with_title.json"))["data"]["results"]
+        JSON.parse(File.read("spec/fixtures/search_comics/with_search_term.json"))["data"]["results"]
       end
 
       include_examples "render index with ok status"
