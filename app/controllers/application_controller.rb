@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def set_user    
+  def set_user
     session[:current_user_id] = session[:current_user_id].presence || SecureRandom.uuid
   end
 end

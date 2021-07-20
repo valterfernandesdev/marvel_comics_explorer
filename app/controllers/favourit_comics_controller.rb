@@ -5,11 +5,11 @@ class FavouritComicsController < ApplicationController
     render :error unless @favourit_comic.save
   end
 
-  def destroy    
+  def destroy
     @favourit_comic = FavouritComic.find_by(favourit_comics_params)
 
     @favourit_comic.destroy
-  rescue
+  rescue StandardError
     render :error
   end
 

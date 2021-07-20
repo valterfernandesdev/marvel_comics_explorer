@@ -1,6 +1,6 @@
 RSpec.describe FavouritComicsController, type: :request do
   describe "POST #create" do
-    subject(:post_create) do 
+    subject(:post_create) do
       post favourit_comics_path, xhr: true, params: { user_id: user_id, comic_id: comic_id }
     end
 
@@ -8,13 +8,13 @@ RSpec.describe FavouritComicsController, type: :request do
       let(:user_id) { Faker::Internet.uuid }
       let(:comic_id) { Faker::Number.unique.number }
 
-      it "render create template with :ok status" do 
+      it "render create template with :ok status" do
         post_create
 
         expect(response).to have_http_status(:ok)
         expect(response).to render_template "favourit_comics/create"
       end
-      
+
       it "creates favourit comic" do
         expect do
           post_create
@@ -27,7 +27,7 @@ RSpec.describe FavouritComicsController, type: :request do
       let(:user_id) { favourit_comic.user_id }
       let(:comic_id) { favourit_comic.comic_id }
 
-      it "render error template with :ok status" do 
+      it "render error template with :ok status" do
         post_create
 
         expect(response).to have_http_status(:ok)
@@ -43,7 +43,7 @@ RSpec.describe FavouritComicsController, type: :request do
   end
 
   describe "DELETE #destroy" do
-    subject(:delete_destroy) do 
+    subject(:delete_destroy) do
       delete favourit_comics_path, xhr: true, params: { user_id: user_id, comic_id: comic_id }
     end
 
@@ -52,7 +52,7 @@ RSpec.describe FavouritComicsController, type: :request do
       let(:user_id) { favourit_comic.user_id }
       let(:comic_id) { favourit_comic.comic_id }
 
-      it "render destroy template with :ok status" do 
+      it "render destroy template with :ok status" do
         delete_destroy
 
         expect(response).to have_http_status(:ok)
@@ -70,7 +70,7 @@ RSpec.describe FavouritComicsController, type: :request do
       let(:user_id) { 1 }
       let(:comic_id) { 1 }
 
-      it "render destroy error template with :ok status" do 
+      it "render destroy error template with :ok status" do
         delete_destroy
 
         expect(response).to have_http_status(:ok)
