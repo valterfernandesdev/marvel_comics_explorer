@@ -1,0 +1,13 @@
+var link = document.getElementById('like_comic_id_<%= j @favourit_comic.comic_id %>');
+
+link.classList.add("like-hover-img");
+link.classList.remove("liked-img");
+link.setAttribute("data-method", "post");
+
+document.getElementById('like_img_heart_on_<%= j @favourit_comic.comic_id %>').remove();
+
+var newImg = document.createElement('img');
+newImg.src = '<%= j asset_path("heart_off.png") %>';
+newImg.id = 'like_img_heart_off_<%= j @favourit_comic.comic_id %>';
+newImg.title = 'Not liked';
+link.appendChild(newImg);
