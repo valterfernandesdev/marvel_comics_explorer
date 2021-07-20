@@ -1,4 +1,23 @@
 RSpec.describe ApplicationHelper do
+  describe "#not_liked_comic?" do
+    subject { helper.not_liked_comic?(comic_id, current_user_id) }
+
+    context "when comic is not liked" do
+      let(:comic_id) { 1 }
+      let(:current_user_id) { 1 }
+
+      it { is_expected.to be true }
+    end
+
+    context "when comic is liked" do
+      let(:favourit_comic) { create(:favourit_comic) }
+      let(:comic_id) { favourit_comic.comic_id }
+      let(:current_user_id) { favourit_comic.user_id }
+
+      it { is_expected.to be false }
+    end
+  end
+
   describe "#show_next_btn?" do
     subject { helper.show_next_btn?(data) }
 

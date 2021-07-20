@@ -12,7 +12,7 @@ RSpec.describe ComicDecorator do
     end
 
     it "returns the url of the comic image" do
-      expect(comic_img_url).to eq "http://imgs.xkcd.com/comics/pizza/portrait_xlarge.jpg"
+      expect(comic_img_url).to eq "http://imgs.xkcd.com/comics/pizza/portrait_uncanny.jpg"
     end
   end
 end

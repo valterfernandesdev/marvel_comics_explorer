@@ -24,16 +24,20 @@
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
         <%- @comics.each do |comic| %>
           <div class="col">
-            <div class="card shadow-sm">
-              <%= image_tag comic.comic_img_url, class: "bd-placeholder-img card-img-top" %>
-              <div class="card-body">
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                  </div>
-                  <small class="text-muted">9 mins</small>
+            <div class="card">
+              <div class="image">
+                <%= image_tag comic.comic_img_url, class: "bd-placeholder-img card-img-top" %>
+              </div>
+              <div class="details">
+
+                <%- if not_liked_comic?(comic["id"], session[:current_user_id]) %>
+                  <%= link_to(image_tag(asset_path("heart_off.png"), id: "like_img_heart_off_#{comic["id"]}", title: "Not Liked"), favourit_comics_path(user_id: session[:current_user_id], comic_id: comic["id"]), method: :post, remote: true, class: "like-img like-hover-img", id: "like_comic_id_#{comic["id"]}") %>
+                <% else %>
+                  <%= link_to(image_tag(asset_path("heart_on.png"), id: "like_img_heart_on_#{comic["id"]}", title: "Liked"), favourit_comics_path(user_id: session[:current_user_id], comic_id: comic["id"]), method: :delete, remote: true, class: "like-img", id: "like_comic_id_#{comic["id"]}") %>
+                <% end %>
+
+                <div class="center">
+                  <h4><%= comic["title"] %></h4>
                 </div>
               </div>
             </div>

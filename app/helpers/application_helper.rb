@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def not_liked_comic?(comic_id, current_user_id)
+    FavouritComic.find_by(user_id: current_user_id, comic_id: comic_id).nil?
+  end
+
   def show_next_btn?(data)
     (data["offset"].to_i + 20) < data["total"].to_i
   end
