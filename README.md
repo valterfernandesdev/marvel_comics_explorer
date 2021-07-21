@@ -1,5 +1,5 @@
 # Marvel Comics Explorer
-![alt text](https://wallpapercave.com/wp/wp1829344.jpg)
+![alt text](app/assets/imgages/marvel_cover.png)
 ##### Prerequisites
 
 The setups steps expect following tools installed on the system.
