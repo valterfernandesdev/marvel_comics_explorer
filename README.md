@@ -1,5 +1,5 @@
 # Marvel Comics Explorer
-![alt text](app/assets/imgages/marvel_cover.png)
+![alt text](app/assets/images/marvel_cover.png)
 ##### Prerequisites
 
 The setups steps expect following tools installed on the system.
