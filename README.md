@@ -8,28 +8,44 @@ The setups steps expect following tools installed on the system.
 - Ruby 3.0.1
 - Rails 6.1.4
 
-##### 1. Clone the repository and cd into it:
+##### 1. Clone the repository, cd into it and bundle install:
 
         $ git clone https://github.com/valterfernandesdev/marvel_comics_explorer.git
         $ cd marvel_comics_explorer
+        $ bundle install
 ##### 2. Create database.yml file
 
 Copy the sample database.yml file and edit the database configuration as required.
 
-        marvel_comics_explorer$ cp config/database.yml.sample config/database.yml
+        $ cp config/database.yml.sample config/database.yml
 
 ##### 3. Create and setup the database
 
 Run the following commands to create and setup the database.
 
-        marvel_comics_explorer$ rails db:create
-        marvel_comics_explorer$ rails db:setup
-##### 4. Start the Rails server
+        $ rails db:create
+        $ rails db:setup
+
+##### 4. Create config/master.key file and copy the key I sent you. (Or request me one)
+
+ Create master key
+
+        $ sudo touch config/master.key
+Edit master key
+
+        $ sudo nano config/master.key
+        
+##### 5. Start the Rails server
+
+Install yarn.
+
+        $ yarn
+##### 6. Start the Rails server
 
 You can start the rails server using the command given below.
 
 
-        marvel_comics_explorer$ rails s
+        $ rails s
 
 And now you can visit the site with the URL http://localhost:3000
         
@@ -37,12 +53,12 @@ And now you can visit the site with the URL http://localhost:3000
 
 1. Prepare your db to run the tests:
 
-        marvel_comics_explorer$ rails db:test:prepare
+        $ rails db:test:prepare
 
 2. Run the tests:
 
-        marvel_comics_explorer$ bundle exec rspec
+        $ bundle exec rspec
 
-3. Now you can see also the coverage of the project by opening:
+3. Now you can see the coverage of the project by opening:
 
         ./coverage/index.html
