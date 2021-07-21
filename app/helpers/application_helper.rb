@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def comic_url?(comic)
+    comic["urls"].first["url"].present?
+  end
+
   def not_liked_comic?(comic_id, current_user_id)
     FavouritComic.find_by(user_id: current_user_id, comic_id: comic_id).nil?
   end

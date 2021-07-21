@@ -1,4 +1,20 @@
 RSpec.describe ApplicationHelper do
+  describe "#comic_url?" do
+    subject { helper.comic_url?(comic) }
+
+    context "when comic has an url" do
+      let(:comic) { { "urls" => ["url"] } }
+
+      it { is_expected.to be true }
+    end
+
+    context "when comic does not have an url" do
+      let(:comic) { { "urls" => ["other_key"] } }
+
+      it { is_expected.to be false }
+    end
+  end
+
   describe "#not_liked_comic?" do
     subject { helper.not_liked_comic?(comic_id, current_user_id) }
 
