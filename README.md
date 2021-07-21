@@ -1,5 +1,10 @@
 # Marvel Comics Explorer
 ![alt text](app/assets/images/marvel_cover.png)
+
+# Live demo
+[https://marvel-comics-explorer.herokuapp.com](https://marvel-comics-explorer.herokuapp.com)
+
+# Setup
 ##### Prerequisites
 
 The setups steps expect following tools installed on the system.
