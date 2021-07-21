@@ -21,10 +21,7 @@
 </header>
 
 <main class="bg-dark">
-  <div class="container">
-    <%= image_tag('marvel_cover.png', class: "img-fluid") %>
-  </div>
-  
+ 
   <section class="py-5 text-center container">
     <h1 class="text-white">Comic Books</h1>
   </section>
@@ -47,7 +44,13 @@
                 <% end %>
 
                 <div class="center">
-                  <h4><%= comic["title"] %></h4>
+                  <h4>
+                    <%- if comic_url?(comic) %>
+                      <%= link_to(comic["title"], comic["urls"].first["url"], title: "More Info.", target: "_blank") %>
+                    <% else %>
+                      <%= comic["title"] %>
+                    <% end %>
+                  </h4>
                 </div>
               </div>
             </div>

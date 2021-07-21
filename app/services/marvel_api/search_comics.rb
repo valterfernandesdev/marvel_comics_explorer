@@ -22,7 +22,15 @@ module MarvelApi
     private
 
     def params
-      { params: payload.merge({ orderBy: "-onsaleDate" }).merge(character_hash).merge(options_hash) }
+      {
+        params: payload.merge(
+          {
+            orderBy: "-onsaleDate",
+            noVariants: true,
+            dateRange: "1949-01-01,#{Date.current}",
+          }
+        ).merge(character_hash).merge(options_hash),
+      }
     end
 
     def character_hash
