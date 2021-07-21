@@ -35,7 +35,7 @@ Edit master key
 
         $ sudo nano config/master.key
         
-##### 5. Start the Rails server
+##### 5. Install all yarn dependencies
 
 Install yarn.
 
