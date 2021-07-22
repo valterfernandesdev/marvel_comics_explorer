@@ -2,6 +2,14 @@ RSpec.describe MarvelApi::SearchComics do
   describe "#call" do
     subject(:call) { described_class.call(search_term: search_term, options: options) }
 
+    before do
+      allow(Rails.application.credentials).to receive(:[]).with(:marvel).and_return(marvel_credentials)
+      allow(marvel_credentials).to receive(:[]).with(:public_key).and_return("123")
+      allow(marvel_credentials).to receive(:[]).with(:private_key).and_return("321")
+    end
+
+    let(:marvel_credentials) { instance_double("marvel_credentials") }
+
     let(:base_url) { "https://gateway.marvel.com/v1/public/comics" }
 
     shared_examples "return results array" do
