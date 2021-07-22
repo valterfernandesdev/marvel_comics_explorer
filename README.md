@@ -26,9 +26,8 @@ Copy the sample database.yml file and edit the database configuration as require
 
 ##### 3. Create and setup the database
 
-Run the following commands to create and setup the database.
+Run the following command to setup the database.
 
-        $ rails db:create
         $ rails db:setup
 
 ##### 4. Create config/master.key file and copy the key I sent you. (Or request me one)
